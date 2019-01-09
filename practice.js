@@ -122,6 +122,22 @@ var numbersArray = [1,2,34,54,55,34,32,11,19,17,54,66,13];
 */
 
 //Code Here
+let divider = (numbersArray) => {
+  let newArr = [[],[]];
+  for (let i = 0; i < numbersArray.length; i++) {
+    const element = numbersArray[i];
+    if (element % 2 === 0){
+      newArr[0].push(element);
+    }
+  }  
+  for (let i = 0; i < numbersArray.length; i++) {
+    const element = numbersArray[i];
+    if (element % 2 === 1){
+      newArr[1].push(element);
+    }
+  }
+  return newArr;
+}
 
 
 
@@ -135,7 +151,8 @@ var getRandomArbitrary = function() {
 
 /* 
   var numbers = [0,3,4,5,6,7,9,14,17,24,25,26,29,30];
-  Above you're given a function that will return a random number between 0 and 30. There is also a commented out array full of numbers to help you visualize what your function will be receiving.
+  Above you're given a function that will return a random number between 0 and 30. There is also a commented out array full of numbers to help
+  you visualize what your function will be receiving.
   Write a function named finder that will take in an array as an argument.
   It will then  get a random number (by invoking getRandomArbitrary).
   Loop through the array to see if that random number is in the array. 
@@ -143,7 +160,16 @@ var getRandomArbitrary = function() {
 */
 
 //Code Here
-
+var finder = (array) => {
+  let bool = false;
+  let rndm = getRandomArbitrary();
+  array.forEach(element => {
+    if (element === rndm){
+      return bool = true;
+    }
+  });
+  return bool;
+}
 
 
 ////////// PROBLEM 8 //////////
@@ -172,7 +198,28 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 */
 
 //Code Here
+var removeItem = (myGroceryList, itemToRemove) => {
+  if (myGroceryList && itemToRemove){
+    myGroceryList.forEach((element, index) => {
+      if (element === itemToRemove){
+        myGroceryList.splice(index, 1)
+      }
+    });
+  } else {
+    return []
+  }
+  
+  return myGroceryList;
+}
 
+var addItem = (myGroceryList, itemToAdd) => {
+  if (myGroceryList && itemToAdd){
+    myGroceryList.push(itemToAdd)
+    return myGroceryList;
+  } else {
+    return []
+  }
+}
 
 
 ////////// PROBLEM 9 //////////
@@ -182,8 +229,13 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 */
 
 //Code Here
-
-
+let maker = () => {
+  let arr = []
+  for (let index = 1; index <= 215; index++) {
+    arr.push(index);
+  }
+  return arr
+}
 
 ////////// PROBLEM 10 //////////
 
@@ -198,7 +250,10 @@ var numbers = [5, '9', 16, 19, '25', '34', 48];
 */
   
 //Code Here
-
+var addTen = (numbers) => {
+  let newArr = numbers.map(element => parseInt(element) + 10);
+  return newArr;
+}
 
 
 ////////// PROBLEM 11 //////////
@@ -223,7 +278,14 @@ for(var i = 0; i < num2; i++){
 */
 
 //Code Here
-
+let longer = (arr1, arr2) => {
+  if(arr1.length > arr1.length){
+    return arr1;
+  }
+  else {
+    return arr2;
+  }
+}
 
 
 /*
@@ -235,7 +297,15 @@ for(var i = 0; i < num2; i++){
 */
 
 //Code Here
-
+let both = (arr1, arr2) => {
+  let newArr = [];
+  arr1.forEach(element => {
+    if(arr2.includes(element)){
+      newArr.push(element)
+    }
+  });
+  return newArr;
+}
 
 
 ////////// PROBLEM 12 //////////
@@ -275,7 +345,11 @@ var colt = {
 */
 
 //Code Here
-
+devMountainEmployees.push(tyler);
+devMountainEmployees.push(cahlan);
+devMountainEmployees.push(ryan);
+devMountainEmployees.push(colt);
+console.log(devMountainEmployees.length == true);
 
 
 /*
@@ -284,7 +358,11 @@ var colt = {
 */
 
 //Code Here
-
+devMountainEmployees.forEach((element, index, arr) => {
+  if (element == cahlan) {
+    arr.splice(index, 1)
+  }
+});
 
 
 ////////// PROBLEM 13 //////////
@@ -296,7 +374,7 @@ var colt = {
 */
 
 //Code Here
-
+let users = []
 
 
 /*
@@ -315,8 +393,23 @@ var user1 = {
 // Do not edit the code above.
 
 //Code Here
+let user2 = {
+    name: 'Nick',
+    email: 'Nick@gmail.com',
+    password: 'Nick',
+    username: 'Nick'
+};
+let user3 = {
+  name: 'McQueen',
+    email: 'McQueen@gmail.com',
+    password: 'McQueen',
+    username: 'McQueen'
+}
+users.push(user1)
+users.push(user2)
+users.push(user3)
 
-
+console.log(users)
 
 /*
   Now you have a very common data structure. 
@@ -329,8 +422,13 @@ var user1 = {
 */
 
 //Code Here
+users.forEach((element, index, arr) => {
+  if(element.email === 'tylermcginnis33@gmail.com') {
+    arr.splice(index, 1)
+  }
+});
 
-
+console.log(users);
 
 /*
   The activity we just did is very much how data works in 'the real world'.
